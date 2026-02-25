@@ -5,3 +5,5 @@
 
      const getMovies = async () => {
         fetch('https://api.themoviedb.org/3/discover/movie?api_key=8e594be3048bf6c34bf75715defcb721')}
+
+        
