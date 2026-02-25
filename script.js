@@ -111,6 +111,8 @@ function renderResults(results) {
         const year = movie.release_date ? ` (${movie.release_date.slice(0,4)})` : '';
         const rating = movie.vote_average ? `⭐ ${movie.vote_average}` : '';
         const overview = movie.overview ? movie.overview : '';
+        const isLong = overview.length > 100;
+        const truncated = isLong ? overview.slice(0, 100) + '...' : overview;
 
         return `
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -119,7 +121,8 @@ function renderResults(results) {
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${movie.title}${year}</h5>
                         <p class="mb-2 small text-warning">${rating}</p>
-                        <p class="card-text small text-truncate">${overview}</p>
+                        <p class="card-text small overview-text" data-full="${overview}" data-truncated="${truncated}">${truncated}</p>
+                        ${isLong ? '<button class="btn btn-sm btn-outline-light mt-auto show-more-btn" data-expanded="false">Exibir mais</button>' : ''}
                     </div>
                 </div>
             </div>
@@ -127,6 +130,24 @@ function renderResults(results) {
     }).join('');
 
     resultsEl.innerHTML = `<div class="row">${cards}</div>`;
+
+    // after injecting cards, attach click handlers for 'Exibir mais' buttons
+    resultsEl.querySelectorAll('.show-more-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const p = btn.closest('.card-body').querySelector('.overview-text');
+            if (!p) return;
+            const expanded = btn.dataset.expanded === 'true';
+            if (expanded) {
+                p.textContent = p.dataset.truncated;
+                btn.textContent = 'Exibir mais';
+                btn.dataset.expanded = 'false';
+            } else {
+                p.textContent = p.dataset.full;
+                btn.textContent = 'Mostrar menos';
+                btn.dataset.expanded = 'true';
+            }
+        });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
