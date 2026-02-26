@@ -31,11 +31,31 @@
 
     <!-- botões fixos de favoritos/avaliações -->
     <div class="position-fixed bottom-0 start-0 p-3">
-        <button type="button" class="btn btn-sm text-white" style="background-color: #4c0027; border-color: #4c0027;">⭐ Favoritos</button>
+        <button id="btn-favorites" type="button" class="btn btn-sm text-white" style="background-color: #4c0027; border-color: #4c0027;">⭐ Favoritos</button>
     </div>
 
     <div class="position-fixed bottom-0 end-0 p-3">
-        <button type="button" class="btn btn-sm text-white" style="background-color: #1E5128; border-color: #1E5128;">📝 Avaliações</button>
+        <button id="btn-ratings" type="button" class="btn btn-sm text-white" style="background-color: #1E5128; border-color: #1E5128;">📝 Avaliações</button>
+    </div>
+
+    <!-- modal para avaliação de filme -->
+    <div class="modal fade" id="ratingModal" tabindex="-1" aria-labelledby="ratingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ratingModalLabel">Avaliar filme</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p id="modalMovieTitle" class="fw-bold"></p>
+            <div id="star-container" class="mb-3"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="saveRatingBtn">Salvar</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
