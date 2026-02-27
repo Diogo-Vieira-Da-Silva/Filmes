@@ -10,11 +10,13 @@ In the end, I delivered a fully functional system, with all proposed features co
 
 Below is a description of the project objectives and the APIs used for its implementation:
 
-🎯 Objectives
+🎯 Objectives:
 
 Consume and integrate APIs – ✅
 
 Movie search field – ✅
+
+A Catalog with the most recent movies and other popular movies - ✅
 
 Movie cards with full synopsis – ✅
 
@@ -30,64 +32,33 @@ Local Storage usage – ✅
 
 Favorites and review system – ✅
 
-
-🖥️APIs: 
+🖥️APIs:
 
 curl --request POST --url https://api.themoviedb.org/3/account/22812937/favorite --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json' --header 'content-type: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/account/22812937/favorite/movies?language=en-US&page=1&sort_by=created_at.asc'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/account/22812937/favorite/movies?language=en-US&page=1&sort_by=created_at.asc' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/account/22812937/rated/movies?language=en-US&page=1&sort_by=created_at.asc'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/account/22812937/rated/movies?language=en-US&page=1&sort_by=created_at.asc' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/movie/changes?page=1'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/movie/changes?page=1' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url https://api.themoviedb.org/3/collection/collection_id/images
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url https://api.themoviedb.org/3/collection/collection_id/images --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/genre/movie/list?language=en'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/genre/movie/list?language=en' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/guest_session/guest_session_id/rated/movies?language=en-US&page=1&sort_by=created_at.asc'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/guest_session/guest_session_id/rated/movies?language=en-US&page=1&sort_by=created_at.asc' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/keyword/keyword_id/movies?include_adult=false&language=en-US&page=1'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/keyword/keyword_id/movies?include_adult=false&language=en-US&page=1' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/movie/movie_id?language=en-US'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/movie/movie_id?language=en-US' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url https://api.themoviedb.org/3/movie/movie_id/images
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url https://api.themoviedb.org/3/movie/movie_id/images --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url https://api.themoviedb.org/3/movie/movie_id/keywords
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url https://api.themoviedb.org/3/movie/movie_id/keywords --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
- --------------------------------------------------------------- Tradução ---------------------------------------------------------------
+--------------------------------------------------------------- Tradução ---------------------------------------------------------------
 
- 📌 Desenvolvimento do Projeto
+📌 Desenvolvimento do Projeto
 
 O primeiro desafio do projeto foi compreender e configurar corretamente o uso das APIs. Para isso, realizei o cadastro na plataforma, gerei a chave de autenticação e explorei a documentação até identificar os endpoints adequados para cada funcionalidade necessária. Durante esse processo, utilizei materiais de apoio, incluindo vídeos técnicos, para consolidar o entendimento da integração.
 
@@ -101,68 +72,47 @@ Segue abaixo a descrição dos objetivos do projeto e das APIs utilizadas para s
 
 🎯Objetivos:
 
-     Pegar as api e consumir elas - ✅
-     Campo de busca de filmes - ✅
-     Card dos filmes com sinopse completa - ✅
-     Mensagem de erro ao não encontrar o filme - ✅
-     Cores escuras - ✅
-     Bootstrap - ✅
-     Filtrar filmes - ✅
-     Local Storage - ✅
-     Favoritos e crítica - ✅
+ Pegar as api e consumir elas - ✅
 
+ Campo de busca de filmes - ✅
 
+ Um catálogo mostrando os filmes mais recentes e outros populares - ✅
 
-🖥️APIs: 
+ Card dos filmes com sinopse completa - ✅
+
+ Mensagem de erro ao não encontrar o filme - ✅
+
+ Cores escuras - ✅
+
+ Bootstrap - ✅
+
+ Filtrar filmes - ✅
+
+ Local Storage - ✅
+
+ Favoritos e crítica - ✅
+
+🖥️APIs:
 
 curl --request POST --url https://api.themoviedb.org/3/account/22812937/favorite --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json' --header 'content-type: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/account/22812937/favorite/movies?language=en-US&page=1&sort_by=created_at.asc'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/account/22812937/favorite/movies?language=en-US&page=1&sort_by=created_at.asc' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/account/22812937/rated/movies?language=en-US&page=1&sort_by=created_at.asc'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/account/22812937/rated/movies?language=en-US&page=1&sort_by=created_at.asc' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/movie/changes?page=1'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/movie/changes?page=1' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url https://api.themoviedb.org/3/collection/collection_id/images
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url https://api.themoviedb.org/3/collection/collection_id/images --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/genre/movie/list?language=en'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/genre/movie/list?language=en' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/guest_session/guest_session_id/rated/movies?language=en-US&page=1&sort_by=created_at.asc'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/guest_session/guest_session_id/rated/movies?language=en-US&page=1&sort_by=created_at.asc' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/keyword/keyword_id/movies?include_adult=false&language=en-US&page=1'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/keyword/keyword_id/movies?include_adult=false&language=en-US&page=1' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url 'https://api.themoviedb.org/3/movie/movie_id?language=en-US'
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url 'https://api.themoviedb.org/3/movie/movie_id?language=en-US' --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url https://api.themoviedb.org/3/movie/movie_id/images
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url https://api.themoviedb.org/3/movie/movie_id/images --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
 
-curl --request GET
---url https://api.themoviedb.org/3/movie/movie_id/keywords
---header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721'
---header 'accept: application/json'
+curl --request GET --url https://api.themoviedb.org/3/movie/movie_id/keywords --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json'
+
