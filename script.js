@@ -1,4 +1,4 @@
- // Busca de filmes usando The Movie Database (TMDB) API
+// Busca de filmes usando The Movie Database (TMDB) API
 // As chamadas da API e a chave estão anotadas no readme do projeto.
 
 const API_KEY = '8e594be3048bf6c34bf75715defcb721';
@@ -256,8 +256,25 @@ async function searchMovies(query) {
         return;
     }
 
-    // Se não há query e não há filtros, limpa
+    // Se não há query e não há filtros, mostrar filmes recentes em cartaz
     if (!query) {
+        if (selectedGenres.length === 0) {
+            // carregar "now playing" para dar ao usuário algo para ver
+            resultsEl.innerHTML = '<div class="text-center my-4 text-light">Carregando...</div>';
+            try {
+                const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=pt-BR&page=1&include_adult=false`;
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('Resposta da API (now_playing): ' + res.status);
+                const data = await res.json();
+                // garantir pelo menos 6 filmes (o endpoint geralmente retorna 20)
+                const results = (data.results || []).slice(0, 6);
+                renderResults(results);
+            } catch (err) {
+                console.error(err);
+                resultsEl.innerHTML = `<div class="text-danger">Erro ao carregar filmes em cartaz: ${err.message}</div>`;
+            }
+            return;
+        }
         resultsEl.innerHTML = '';
         return;
     }
@@ -403,6 +420,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Buscar e popular gêneros no carregamento
     fetchGenres().then(() => {
+        // logo que termos gêneros carregados, fazemos uma busca inicial vazia para preencher
+        searchMovies('');
+
         // adicionar listener ao select de gêneros para disparar busca ao alterar
         const sel = document.getElementById('genres');
         if (sel) {
