@@ -32,6 +32,10 @@ Local Storage usage – ✅
 
 Favorites and review system – ✅
 
+▶️ Running the Application
+
+Simply open the project in a browser to test all the features, including being able to view 6 of the most recent movies by default, filter without searching, allowing you to see the most recent movies in the genre and other popular ones, search for movies by name and filter by genre, add them to favorites and check them by clicking the favorite button, rate them, and be able to see your rated movies and their ratings in the ratings button.
+
 🖥️APIs:
 
 curl --request POST --url https://api.themoviedb.org/3/account/22812937/favorite --header 'Authorization: Bearer 8e594be3048bf6c34bf75715defcb721' --header 'accept: application/json' --header 'content-type: application/json'
@@ -91,6 +95,10 @@ Segue abaixo a descrição dos objetivos do projeto e das APIs utilizadas para s
  Local Storage - ✅
 
  Favoritos e crítica - ✅
+
+ ▶️ Executando a Aplicação
+
+Basta abrir o projeto em um navegador para testar todas as funcionalidades, incluindo poder por padrão ver 6 dos filmes mais recentes, filtrar sem pesquisar, permitindo ver os mais recentes do gênero e outros populares, pesquisar filmes pelo nome e filtrar seu gênero, adicionar eles aos favoritos e verificar eles ao clicar no botão de favorito e avaliar eles e poder ver seus filmes avaliados e suas avaliações no botão de avaliações.
 
 🖥️APIs:
 
